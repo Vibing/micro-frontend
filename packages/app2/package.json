@@ -1,0 +1,12 @@
+{
+  "name": "app2",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack-dev-server --port 9003",
+    "build:portal": "webpack -p --progress"
+  },
+  "keywords": [],
+  "author": "chenLong",
+  "license": "MIT"
+}

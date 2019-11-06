@@ -1,0 +1,6 @@
+{
+  "lerna": "3.16.1",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}
