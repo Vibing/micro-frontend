@@ -25,7 +25,8 @@ async function init() {
       '',
       'http://localhost:9001/singleSpaEntry.js',
       'http://localhost:9001/store.js',
-      globalEventDistributor
+      // globalEventDistributor
+      null
     )
   );
 
@@ -34,8 +35,8 @@ async function init() {
       'app1',
       '/app1',
       'http://localhost:9002/singleSpaEntry.js',
-      'http://localhost:9002/store.js',
-      globalEventDistributor
+      'http://localhost:9001/store.js',
+      null
     )
   );
 

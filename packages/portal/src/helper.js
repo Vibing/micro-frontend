@@ -34,8 +34,7 @@ export async function loadApp(
     () => SystemJS.import(appURL),
     hashPrefix(hash),
     {
-      mainStore: storeModule,
-      globalEventDistributor: globalEventDistributor
+      mainStore: storeModule
     }
   );
 }

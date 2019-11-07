@@ -5,7 +5,7 @@ import store from '../src/store';
 @observer
 export default class Main extends Component<any, any> {
   render() {
-    console.log('app1-->', this.props.mainStore);
+    console.log('main-->', this.props.mainStore);
     return (
       <div id="content-wrap">
         This is Main
@@ -28,7 +28,7 @@ export default class Main extends Component<any, any> {
 
   change = () => {
     const { count } = this.props.mainStore;
-    this.props.globalEventDistributor.changeMainState({
+    this.props.mainStore.changeMainState({
       count: count + 1
     });
   };

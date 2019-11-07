@@ -13,9 +13,9 @@ class Store {
     Object.assign(this, state);
   };
 
-  changeMainState(state) {
+  changeMainState = state => {
     this.changeState(state);
-  }
+  };
 }
 
 const mainStore = new Store();

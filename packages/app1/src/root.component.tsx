@@ -53,7 +53,7 @@ export default class App1 extends Component<any, any> {
 
   change = () => {
     const { count } = this.props.mainStore;
-    this.props.globalEventDistributor.changeMainState({
+    this.props.mainStore.changeMainState({
       count: count + 1
     });
   };

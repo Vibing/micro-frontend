@@ -1,5 +1,4 @@
-import { observable, action, configure, runInAction } from 'mobx';
-import CustomEvent from 'custom-event';
+import { observable, action, configure } from 'mobx';
 
 configure({
   enforceActions: 'observed'
@@ -14,16 +13,9 @@ class Store {
     Object.assign(this, state);
   };
 
-  changeMainState(state) {
+  changeMainState = state => {
     this.changeState(state);
-  }
+  };
 }
 
-const mainStore = new Store();
-
-//pub sub同步所有模块store
-window.addEventListener('spa@changeMainState', (e: any) => {
-  mainStore.changeMainState(e.detail);
-});
-
-export default mainStore;
+export default new Store();
