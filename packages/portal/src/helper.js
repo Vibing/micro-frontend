@@ -16,31 +16,26 @@ export async function loadApp(
   storeURL,
   globalEventDistributor
 ) {
-  let storeModule = {},
-    customProps = { globalEventDistributor: globalEventDistributor };
+  let storeModule = {};
 
-  // try to import the store module
   try {
-    storeModule = storeURL
-      ? await SystemJS.import(storeURL)
-      : { storeInstance: null };
+    storeModule = storeURL ? await SystemJS.import(storeURL) : null;
+    storeModule = storeModule ? storeModule.default : null;
   } catch (e) {
-    console.log(`Could not load store of app ${name}.`, e);
+    console.log(`无法加载mainStore.`, e);
   }
 
-  if (storeModule.storeInstance && globalEventDistributor) {
-    // add a reference of the store to the customProps
-    customProps.store = storeModule.storeInstance;
-
-    // register the store with the globalEventDistributor
-    globalEventDistributor.registerStore(storeModule.storeInstance);
+  if (storeModule && globalEventDistributor) {
+    globalEventDistributor.registerStore(storeModule);
   }
 
-  // register the app with singleSPA and pass a reference to the store of the app as well as a reference to the globalEventDistributor
   singleSpa.registerApplication(
     name,
     () => SystemJS.import(appURL),
     hashPrefix(hash),
-    customProps
+    {
+      mainStore: storeModule,
+      globalEventDistributor: globalEventDistributor
+    }
   );
 }

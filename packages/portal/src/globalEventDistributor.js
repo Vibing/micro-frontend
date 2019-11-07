@@ -1,14 +1,15 @@
+import CustomEvent from 'custom-event';
+
 export class GlobalEventDistributor {
+  constructor() {
+    this.stores = [];
+  }
 
-    constructor() {
-        this.stores = [];
-    }
+  registerStore(store) {
+    this.stores.push(store);
+  }
 
-    registerStore(store) {
-        this.stores.push(store);
-    }
-
-    dispatch(event) {
-        this.stores.forEach((s) => s.dispatch(event));
-    }
+  changeMainState(state) {
+    this.stores.forEach(s => s.changeMainState(state));
+  }
 }

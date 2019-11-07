@@ -1,22 +1,41 @@
 import * as singleSpa from 'single-spa';
 import { GlobalEventDistributor } from './globalEventDistributor';
 import { loadApp } from './helper';
+import { InvalidatedProjectKind } from 'typescript';
+
+const project_config = [
+  {
+    isBase: true,
+    name: 'main',
+    version: '1.0.0',
+    hashPrefix: '',
+    entry: 'http://localhost:9001/singleSpaEntry.js',
+    store: 'http://localhost:9001/store.js'
+  }
+];
 
 async function init() {
   const globalEventDistributor = new GlobalEventDistributor();
   const loadingPromises = [];
 
+  // main模块
   loadingPromises.push(
-    loadApp('main', '', 'http://localhost:9001/singleSpaEntry.js', null, null)
+    loadApp(
+      'main',
+      '',
+      'http://localhost:9001/singleSpaEntry.js',
+      'http://localhost:9001/store.js',
+      globalEventDistributor
+    )
   );
-  // app1: The URL "/app1/..." is being redirected to "http://localhost:9001/..." this is done by the webpack proxy (webpack.config.js)
+
   loadingPromises.push(
     loadApp(
       'app1',
       '/app1',
       'http://localhost:9002/singleSpaEntry.js',
-      null,
-      null
+      'http://localhost:9002/store.js',
+      globalEventDistributor
     )
   );
 
