@@ -14,10 +14,6 @@ const List = loadable({
 
 @observer
 export default class App1 extends Component<any, any> {
-  state = {
-    mainStore: this.props.mainStore
-  };
-
   constructor(props) {
     super(props);
   }
@@ -28,7 +24,7 @@ export default class App1 extends Component<any, any> {
 
   render() {
     return (
-      <Provider mainStore={this.props.mainStore}>
+      <Provider baseStore={this.props.mainStore}>
         <Router>
           <Switch>
             <Route exact path="/app2" render={() => <List />} />

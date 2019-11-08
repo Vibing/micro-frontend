@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'production',
   entry: {
-    vendor: ['react', 'react-dom']
+    vendor: ['react', 'react-dom', 'mobx', 'mobx-react', 'react-loadable']
   },
   output: {
     path: path.resolve(__dirname, 'dll'),
