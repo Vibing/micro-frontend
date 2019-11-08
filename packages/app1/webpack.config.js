@@ -10,8 +10,7 @@ module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   entry: {
-    singleSpaEntry: './src/singleSpaEntry.js',
-    store: './src/store'
+    singleSpaEntry: './src/singleSpaEntry.js'
   },
 
   output: {

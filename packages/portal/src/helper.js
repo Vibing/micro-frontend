@@ -9,13 +9,7 @@ export function hashPrefix(prefix) {
   };
 }
 
-export async function loadApp(
-  name,
-  hash,
-  appURL,
-  storeURL,
-  globalEventDistributor
-) {
+export async function loadApp(name, hash, appURL, storeURL) {
   let storeModule = {};
 
   try {
@@ -23,10 +17,6 @@ export async function loadApp(
     storeModule = storeModule ? storeModule.default : null;
   } catch (e) {
     console.log(`无法加载mainStore.`, e);
-  }
-
-  if (storeModule && globalEventDistributor) {
-    globalEventDistributor.registerStore(storeModule);
   }
 
   singleSpa.registerApplication(

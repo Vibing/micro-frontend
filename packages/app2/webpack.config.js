@@ -11,14 +11,14 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: {
     singleSpaEntry: './src/singleSpaEntry.js'
-    // store: './src/store.js'
   },
 
   output: {
+    publicPath: 'http://localhost:9003/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'release'),
     libraryTarget: 'amd',
-    library: 'app1'
+    library: 'app2'
   },
 
   resolve: {
@@ -134,6 +134,7 @@ module.exports = {
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
   ],
   devServer: {
+    port: 9003,
     host: '0.0.0.0',
     contentBase: './release',
     inline: true,

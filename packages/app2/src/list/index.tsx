@@ -8,7 +8,7 @@ export default class List extends Component<any, any> {
   render() {
     return (
       <div>
-        这是APP1
+        这是APP2
         <button onClick={this.handleChange} style={{ margin: '0px 10px' }}>
           测试Store {this.props.mainStore.count}
         </button>

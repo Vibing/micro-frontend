@@ -1,9 +1,9 @@
 {
-  "name": "app2",
+  "name": "app1",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --port 9003",
+    "start": "webpack-dev-server",
     "build:portal": "webpack -p --progress"
   },
   "keywords": [],

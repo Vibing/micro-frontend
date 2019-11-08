@@ -31,29 +31,20 @@ export default class App1 extends Component<any, any> {
     console.log('app1-->', this.props.mainStore);
 
     return (
-      <Provider appStore={this.props.mainStore}>
-        <div>
-          This is App1 {this.props.mainStore.count}
-          <button onClick={this.change}>app1 测</button>
-          <Router>
-            <Switch>
-              <Route
-                exact
-                path="/app1/detail"
-                render={() => {
-                  return <Detail />;
-                }}
-              />
-            </Switch>
-          </Router>
-        </div>
+      <Provider mainStore={this.props.mainStore}>
+        <Router>
+          <Switch>
+            <Route exact path="/app1" render={() => <List />} />
+            <Route exact path="/app1/detail" render={() => <Detail />} />
+          </Switch>
+        </Router>
       </Provider>
     );
   }
 
   change = () => {
     const { count } = this.props.mainStore;
-    this.props.mainStore.changeMainState({
+    this.props.mainStore.changeState({
       count: count + 1
     });
   };

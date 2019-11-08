@@ -1,7 +1,5 @@
 import * as singleSpa from 'single-spa';
-import { GlobalEventDistributor } from './globalEventDistributor';
 import { loadApp } from './helper';
-import { InvalidatedProjectKind } from 'typescript';
 
 const project_config = [
   {
@@ -15,7 +13,6 @@ const project_config = [
 ];
 
 async function init() {
-  const globalEventDistributor = new GlobalEventDistributor();
   const loadingPromises = [];
 
   // main模块
@@ -24,9 +21,7 @@ async function init() {
       'main',
       '',
       'http://localhost:9001/singleSpaEntry.js',
-      'http://localhost:9001/store.js',
-      // globalEventDistributor
-      null
+      'http://localhost:9001/store.js'
     )
   );
 
@@ -35,8 +30,7 @@ async function init() {
       'app1',
       '/app1',
       'http://localhost:9002/singleSpaEntry.js',
-      'http://localhost:9001/store.js',
-      null
+      'http://localhost:9001/store.js'
     )
   );
 
@@ -45,8 +39,7 @@ async function init() {
       'app2',
       '/app2',
       'http://localhost:9003/singleSpaEntry.js',
-      null,
-      null
+      'http://localhost:9001/store.js'
     )
   );
 
