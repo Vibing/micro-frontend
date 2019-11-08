@@ -7,7 +7,7 @@ export default class Main extends Component<any, any> {
   render() {
     return (
       <div id="content-wrap">
-        This is Main App
+        Main App
         <div>
           <button onClick={this.change}>
             Store测试 count:{this.props.mainStore.count}
