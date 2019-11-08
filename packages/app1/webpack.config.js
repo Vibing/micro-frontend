@@ -16,6 +16,7 @@ module.exports = {
   output: {
     publicPath: 'http://localhost:9002/',
     filename: '[name].js',
+    chunkFilename: '[name].[chunkhash:8].js',
     path: path.resolve(__dirname, 'release'),
     libraryTarget: 'amd',
     library: 'app1'
